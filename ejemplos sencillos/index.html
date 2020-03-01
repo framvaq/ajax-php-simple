@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width. initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>AJAX Simple</title>
+    </head>
+    <body>
+        <button onclick="sendRequest()">
+            Send Ajax Request
+        </button>
+        <h1 id="title"></h1>
+
+
+        <script>
+            function sendRequest() {
+                var theObject = new XMLHttpRequest();
+                // Para recibir datos
+                /*
+                theObject.open('GET', 'backend.php', true);
+                theObject.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                theObject.onreadystatechange = function (){
+                    document.getElementById('title').innerHTML = theObject.responseText;
+                }
+                theObject.send();
+                */
+                
+                /*
+                Usa el método post para enviar datos (variable $_POST de PHP). 
+                Envío el dato username, con valor framvaq y después muestra lo que recibe del servidor.
+                */
+                theObject.open('POST', 'backend.php', true);
+                theObject.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                //En el vídeo esta línea (send) va al final, y funciona, pero creo que así tiene más sentido.
+                theObject.send('username=framvaq');
+                theObject.onreadystatechange = function (){
+                    document.getElementById('title').innerHTML = theObject.responseText;
+                }
+                
+            }
+
+        </script>
+    </body>
+
+</html>
