@@ -1,3 +1,5 @@
+<reference path="./typings/globals/jquery/index.d.ts" />
+
 $(function () {
     let edit = false;
     //console.log("jquery works");
@@ -20,6 +22,7 @@ $(function () {
                 data: {
                     search
                 },
+                
                 success: function (response) {
                     //console.log(response);
                     //convert the response into a JSON object
